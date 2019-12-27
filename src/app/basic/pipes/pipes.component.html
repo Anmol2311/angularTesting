@@ -1,0 +1,20 @@
+<div class="card">
+    <div class="card-body">
+      <div><strong>1. Uppercase:</strong> {{ title | uppercase }} </div>
+      <div><strong>2. Lowercase:</strong> {{ title | lowercase }} </div>
+      <div><strong>3. Titlecase:</strong> {{ title | titlecase }} </div>
+      <div><strong>4. Currency:</strong> {{ price | currency:'INR':'symbol':'4.2-2' }} </div>
+      <div><strong>5. Splice:</strong> {{ title | slice:'0':'7' }} </div>
+      <div><strong>6. JSON:</strong> {{ employee | json }} </div>
+      <div><strong>7. Number:</strong> {{ num | number:'1.1-3' }} </div>
+      <div><strong>8. Percent:</strong> {{ .5 | percent }} </div>
+      <div><strong>9. Date:</strong> {{ today | date:'d/M/y,h:mm a' }} </div> <!-- short,medium,long,full -->
+      <div><strong>10. Custom Sort Pipe:</strong></div>
+      <ul>
+        <li><ins>Array of string in Ascending:</ins> {{ employees | sort:'asc' }} </li>
+        <li><ins>Array of string in Descending:</ins> {{ employees | sort:'desc' }}</li>
+        <li><ins>Array of Number in Ascending:</ins> {{ marks | sort:'asc' }}</li>
+        <li><ins>Array of Number in Descending:</ins> {{ marks | sort:'desc' }}</li>
+      </ul>
+    </div>
+  </div>

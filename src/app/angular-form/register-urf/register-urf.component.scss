@@ -1,0 +1,23 @@
+.custom-form-group{
+    display: flex;
+    align-items: center;
+}
+.custom-alert{
+    padding: 5px 10px;
+    text-align: center;
+}
+
+input:focus{
+    box-shadow: none;
+}
+
+select:focus{
+    box-shadow: none;
+}
+
+.custom-btn{
+    width: 130px;
+    &:focus{
+        box-shadow: none;
+    }
+}

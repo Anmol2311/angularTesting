@@ -1,0 +1,10 @@
+.parent-wrapper{
+    &__input{
+        display: flex;
+        align-items: center;
+        .custom-form-control{
+            width: 25%;
+            margin-left: 10px;
+        }
+    }
+}

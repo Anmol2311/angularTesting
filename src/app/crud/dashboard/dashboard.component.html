@@ -1,0 +1,28 @@
+<div class="float-left">
+  <button class="btn btn-outline-primary btn-sm custom-btn" [routerLink]="['/crud-operation','add-employee']">Add</button>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>City</th>
+      <th class="text-center">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let emp of employees">
+      <tr>
+        <td>{{emp.uname}}</td>
+        <td>{{emp.uemail}}</td>
+        <td>{{emp.umobile}}</td>
+        <td>{{emp.ucity}}</td>
+        <td class="d-flex justify-content-around align-items-center">
+          <i class="fa fa-pencil-square-o text-success" aria-hidden="true" (click)="edit(emp.id)"></i><i
+            class="fa fa-trash-o text-danger" aria-hidden="true" (click)="deleteEmp(emp)"></i>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

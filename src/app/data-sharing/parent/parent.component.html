@@ -1,0 +1,10 @@
+<div class="container">
+  <h4>Parent Component</h4>
+  <div class="parent-wrapper">
+    <p class="parent-wrapper__input"><strong>Pass message to child:</strong> 
+    <input type="text" ngModel (ngModelChange)="message = $event" placeholder="Enter Message" class="form-control form-control-sm custom-form-control"></p>
+    <p><strong>Received message from child:</strong> {{childMsg}}</p>
+  </div>
+  <hr>
+  <app-child (childEmmiter)="childMsg=$event" [parentMsg]="message"></app-child>
+</div>

@@ -1,0 +1,15 @@
+.table{
+    thead{
+        & th{
+            border:none;
+        }
+    }
+    tbody{
+        i:hover{
+            cursor: pointer;
+        }
+    }
+}
+.custom-btn{
+    width: 130px;
+}

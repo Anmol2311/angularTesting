@@ -1,0 +1,53 @@
+<div class="card">
+
+  <div class="card-body">
+    <nav class="navbar navbar-light bg-light justify-content-start border">
+      <button class="btn btn-outline-danger custom-btn" type="button" (click)="showCarList()">Cars</button>&nbsp;&nbsp;
+      <button class="btn btn-outline-danger custom-btn" type="button"
+        (click)="showBikeList()">Bikes</button>&nbsp;&nbsp;
+    </nav>
+    <br>
+
+    <h3 class="menu-title" [hidden]="!isCars" [ngClass]="myClass">Car List</h3>
+    <h3 class="menu-title" [hidden]="isCars" [ngClass]="myClass">Bike List</h3>
+
+    <div *ngIf="isCars;then Cars else Bikes">
+
+    </div>
+
+    <ng-template #Cars>
+      <ul class="car-list">
+        <ng-container *ngFor="let car of cars">
+          <li (click)="getItem(car)" appHover>{{car.name}}</li>
+        </ng-container>
+      </ul>
+    </ng-template>
+
+    <ng-template #Bikes>
+      <ul class="bike-list">
+        <ng-container *ngFor="let bike of bikes">
+          <li (click)="getItem(bike)" appHover>{{bike.name}}</li>
+        </ng-container>
+      </ul>
+    </ng-template>
+
+    <button class="btn btn-outline-danger custom-btn" type="button" (click)="changeStyle()">Toggle
+      Style</button>&nbsp;&nbsp;
+    <button class="btn btn-outline-danger custom-btn" type="button" (click)="changeClass()">Toggle
+      Class</button>&nbsp;&nbsp;
+    <br><br>
+
+    <div [ngSwitch]="choice.name" [ngStyle]="myStyle">
+      <div *ngSwitchCase="'Audi'">Your selected car is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchCase="'BMW'">Your selected car is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchCase="'Ford'">Your selected car is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchCase="'Toyota'">Your selected car is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchCase="'Suzuki'">Your selected bike is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchCase="'Yamaha'">Your selected bike is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchCase="'KTM'">Your selected bike is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchCase="'Royal Enfield'">Your selected bike is <strong>{{ choice.name }}</strong> & price is <strong>{{choice.price | currency:'INR'}}</strong></div>
+      <div *ngSwitchDefault>Please select any one</div>
+    </div>
+
+  </div>
+</div>

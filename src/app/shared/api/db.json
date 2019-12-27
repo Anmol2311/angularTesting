@@ -1,0 +1,80 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "name": "Audi",
+      "price": 5000000
+    },
+    {
+      "id": 2,
+      "name": "BMW",
+      "price": 4500000
+    },
+    {
+      "id": 3,
+      "name": "Ford",
+      "price": 2000000
+    },
+    {
+      "id": 4,
+      "name": "Toyota",
+      "price": 1500000
+    }
+  ],
+  "bikes": [
+    {
+      "id": 1,
+      "name": "Suzuki",
+      "price": 104000
+    },
+    {
+      "id": 2,
+      "name": "Yamaha",
+      "price": 115000
+    },
+    {
+      "id": 3,
+      "name": "KTM",
+      "price": 190000
+    },
+    {
+      "id": 4,
+      "name": "Royal Enfield",
+      "price": 225000
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "uname": "Anmol Chaware",
+      "uemail": "anmol@gmail.com",
+      "umobile": 7474747474,
+      "ucity": "Pune",
+      "terms": true
+    },
+    {
+      "id": 2,
+      "uname": "Rupesh Bhagat",
+      "uemail": "rupesh@gmail.com",
+      "umobile": 7457457457,
+      "ucity": "Bengaluru",
+      "terms": true
+    },
+    {
+      "id": 3,
+      "uname": "Dipak Naik",
+      "uemail": "dipak@gmail.com",
+      "umobile": 8484848484,
+      "ucity": "Mumbai",
+      "terms": true
+    },
+    {
+      "uname": "Madhav Pandhare",
+      "uemail": "madhav@gmail.com",
+      "umobile": "8787878787",
+      "ucity": "Mumbai",
+      "terms": true,
+      "id": 4
+    }
+  ]
+}

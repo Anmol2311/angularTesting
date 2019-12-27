@@ -1,0 +1,74 @@
+<div class="row">
+    <div class="container col-sm-6">
+      <form [formGroup]="signup" (ngSubmit)="register()" #urfForm autocomplete="on">
+        <fieldset>
+          <legend class="text-center">{{title}}</legend>
+          <div class="form-group custom-form-group row">
+            <label class="col-sm-3 col-form-label">Name:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control form-control-sm" [ngClass]="{'border-danger':signup.get('uname').invalid && signup.get('uname').touched,'border-success':signup.get('uname').valid}" formControlName="uname" placeholder="Eg. Anmol Chaware" />
+            </div>
+            <div class="col-sm-9 offset-sm-3 mt-2">
+              <div class="alert alert-danger custom-alert" *ngIf="signup.get('uname').invalid && signup.get('uname').touched">
+                <div *ngIf="signup.get('uname').hasError('required')">Name should be required</div>
+                <div *ngIf="signup.get('uname').hasError('pattern')">Name should contains only character & single space</div>
+              </div>
+            </div><!-- ./ alert end -->
+          </div>
+  
+          <div class="form-group custom-form-group row">
+            <label class="col-sm-3 col-form-label">Email:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control form-control-sm" [ngClass]="{'border-danger':signup.get('uemail').invalid && signup.get('uemail').touched,'border-success':signup.get('uemail').valid}" formControlName="uemail" placeholder="Eg. email@example.com" />
+            </div>
+            <div class="col-sm-9 offset-sm-3 mt-2">
+              <div class="alert alert-danger custom-alert" *ngIf="signup.get('uemail').invalid && signup.get('uemail').touched">
+                <div *ngIf="signup.get('uemail').hasError('required')">Email should be required</div>
+                <div *ngIf="signup.get('uemail').hasError('pattern')">Please enter a valid email</div>
+              </div>
+            </div><!-- ./ alert end -->
+          </div>
+          <div class="form-group custom-form-group row">
+            <label class="col-sm-3 col-form-label">Mobile:</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control form-control-sm" [ngClass]="{'border-danger':signup.get('umobile').invalid && signup.get('umobile').touched,'border-success':signup.get('umobile').valid}" formControlName="umobile" placeholder="Eg. 8787878787" />
+            </div>
+            <div class="col-sm-9 offset-sm-3 mt-2">
+              <div class="alert alert-danger custom-alert" *ngIf="signup.get('umobile').invalid && signup.get('umobile').touched">
+                <div *ngIf="signup.get('umobile').hasError('required')">Mobile number should be required</div>
+                <div *ngIf="signup.get('umobile').hasError('pattern')">Mobile number should start with 7, 8 or 9 & 10 digit long.</div>
+              </div>
+            </div><!-- ./ alert end -->
+          </div>
+          <div class="form-group custom-form-group row">
+            <label class="col-sm-3 col-form-label">City:</label>
+            <div class="col-sm-9">
+              <select formControlName="ucity" class="form-control form-control-sm" [ngClass]="{'border-danger':signup.get('ucity').invalid && signup.get('ucity').touched,'border-success':signup.get('ucity').valid}" placeholder="asdadasdasd">
+                <option value="">Select your city</option>
+                <ng-container *ngFor="let city of cities">
+                  <option [value]="city">{{city}}</option>
+                </ng-container>
+              </select>
+            </div>
+            <div class="col-sm-9 offset-sm-3 mt-2">
+              <div class="alert alert-danger custom-alert" *ngIf="signup.get('ucity').invalid && signup.get('ucity').touched">
+                <div *ngIf="signup.get('ucity').hasError('required')">Please select anyone city</div>
+              </div>
+            </div><!-- ./ alert end -->
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" formControlName="terms" />
+            <label class="form-check-label">
+              I accept the terms & conditions for the registration.
+            </label>
+          </div>
+          <div class="form-group mt-3">
+            <button type="submit" class="btn btn-outline-primary btn-sm custom-btn"
+              [disabled]="signup.invalid">Register</button>&nbsp;
+            <button type="reset" class="btn btn-outline-primary btn-sm custom-btn">Clear</button>
+          </div>
+        </fieldset>
+      </form>
+      <!-- {{utdForm.value | json}} -->
+    </div>
+  </div>

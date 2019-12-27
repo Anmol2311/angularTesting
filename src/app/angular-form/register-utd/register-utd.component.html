@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="container col-sm-6">
+    <form #utdForm="ngForm" (ngSubmit)="register(utdForm.value)" autocomplete="on">
+      <fieldset>
+        <legend class="text-center">{{title}}</legend>
+        <div class="form-group custom-form-group row">
+          <label class="col-sm-3 col-form-label">Name:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control form-control-sm" name="uname" ngModel placeholder="Eg. Anmol Chaware"
+              #uname="ngModel" required pattern="(?=^.{0,30}$)^[a-zA-Z-]+\s[a-zA-Z-]+$" />
+          </div>
+          <div class="col-sm-9 offset-sm-3 mt-2">
+            <div class="alert alert-danger custom-alert" *ngIf="uname.invalid && uname.touched">
+              <div *ngIf="uname.hasError('required')">Name should be required</div>
+              <div *ngIf="uname.hasError('pattern')">Name should contains only character & single space</div>
+            </div>
+          </div><!-- ./ alert end -->
+        </div>
+
+        <div class="form-group custom-form-group row">
+          <label class="col-sm-3 col-form-label">Email:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control form-control-sm" name="uemail" ngModel
+              placeholder="Eg. email@example.com" #uemail="ngModel" required
+              pattern="[a-z0-9._%+-]+@([a-z0-9.-]{5})+\.[a-z]{2,4}" />
+          </div>
+          <div class="col-sm-9 offset-sm-3 mt-2">
+            <div class="alert alert-danger custom-alert" *ngIf="uemail.invalid && uemail.touched">
+              <div *ngIf="uemail.hasError('required')">Email should be required</div>
+              <div *ngIf="uemail.hasError('pattern')">Please enter a valid email</div>
+            </div>
+          </div><!-- ./ alert end -->
+        </div>
+        <div class="form-group custom-form-group row">
+          <label class="col-sm-3 col-form-label">Mobile:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control form-control-sm" name="umobile" ngModel placeholder="Eg. 8888888888"
+              #umobile="ngModel" required pattern="[789][0-9]{9}" />
+          </div>
+          <div class="col-sm-9 offset-sm-3 mt-2">
+            <div class="alert alert-danger custom-alert" *ngIf="umobile.invalid && umobile.touched">
+              <div *ngIf="umobile.hasError('required')">Mobile number should be required</div>
+              <div *ngIf="umobile.hasError('pattern')">Mobile number should start with 7, 8 or 9 & 10 digit long.</div>
+            </div>
+          </div><!-- ./ alert end -->
+        </div>
+        <div class="form-group custom-form-group row">
+          <label class="col-sm-3 col-form-label">City:</label>
+          <div class="col-sm-9">
+            <select name="ucity" ngModel #ucity="ngModel" class="form-control form-control-sm" placeholder="asdadasdasd" required>
+              <option value="">Select your city</option>
+              <ng-container *ngFor="let city of cities">
+                <option [value]="city">{{city}}</option>
+              </ng-container>
+            </select>
+          </div>
+          <div class="col-sm-9 offset-sm-3 mt-2">
+            <div class="alert alert-danger custom-alert" *ngIf="ucity.invalid && ucity.touched">
+              <div *ngIf="ucity.hasError('required')">Please select anyone city</div>
+            </div>
+          </div><!-- ./ alert end -->
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="terms" ngModel required />
+          <label class="form-check-label">
+            I accept the terms & conditions for the registration.
+          </label>
+        </div>
+        <div class="form-group mt-3">
+          <button type="submit" class="btn btn-outline-primary btn-sm custom-btn"
+            [disabled]="utdForm.invalid">Register</button>&nbsp;
+          <button type="reset" class="btn btn-outline-primary btn-sm custom-btn">Clear</button>
+        </div>
+      </fieldset>
+    </form>
+    <!-- {{utdForm.value | json}} -->
+  </div>
+</div>
